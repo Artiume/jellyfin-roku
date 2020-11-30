@@ -18,7 +18,7 @@ sub itemContentChanged()
   m.itemText.maxWidth = imageWidth
   itemTextExtra.width = imageWidth
 
-  ' Randmomise the background colors
+  ' Randomize the background colors
   m.backdrop = m.top.findNode("backdrop")
   posterBackgrounds = m.global.constants.poster_bg_pallet
   m.backdrop.color = posterBackgrounds[rnd(posterBackgrounds.count()) - 1]
@@ -85,7 +85,8 @@ sub itemContentChanged()
   if itemData.type = "Movie" then
     m.itemText.text = itemData.name
 
-    if imageWidth = 180
+    ' Use best image, but fallback to secondary if it's empty
+    if (imageWidth = 180 and itemData.posterURL <> "") or itemData.thumbnailURL = ""
       itemPoster.uri = itemData.posterURL
     else
       itemPoster.uri = itemData.thumbnailURL
