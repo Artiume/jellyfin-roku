@@ -216,8 +216,8 @@ sub onItemFocused()
   ' Set Background to item backdrop
   SetBackground(m.itemGrid.content.getChild(m.itemGrid.itemFocused).backdropUrl)
 
-  ' Load more data if focus is within last 5 rows, and there are more items to load
-  if focusedRow >= m.loadedRows - 5 and m.loadeditems < m.loadItemsTask.totalRecordCount then
+  ' Load more data if focus is within last 7 rows, and there are more items to load
+  if focusedRow >= m.loadedRows - 7 and m.loadeditems < m.loadItemsTask.totalRecordCount then
     loadMoreData()
   end if
 end sub
